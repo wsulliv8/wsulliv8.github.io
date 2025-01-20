@@ -1,4 +1,3 @@
-
 ## 2.5.1.1
 
 $U\in \mathbb{C}^{m \times m}$ is unitary if and only if $(Ux)^H(Uy)=x^Hy$ for all $x,y \in \mathbb{C}^m$.
