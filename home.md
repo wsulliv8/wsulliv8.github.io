@@ -1,3 +1,8 @@
+---
+layout: page
+title: Home
+permalink: /home/
+---
 
 **Greetings!** I am a nuclear submarine officer working at Trident Training Facility (TTF) near Seattle. I recently spent three years on the USS Jimmy Carter (SSN-23) and prior to that I did my undergrad in Computer Science at the University of Notre Dame.
 
@@ -8,8 +13,5 @@ Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, sno
 ![_config.yml]({{ site.baseurl }}/assets/images/me-one.HEIC){: width: "500"}
 
 
-## Contact Me
-
-LinkedIn: [linkedin.com/in/william-g-sullivan](www.linkedin.com/in/william-g-sullivan)
 
 
