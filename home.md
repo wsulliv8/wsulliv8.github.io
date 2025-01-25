@@ -9,7 +9,7 @@ I am currently enrolled in the Computer Science graduate program at the Universi
 
 Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, snowboarding, kayaking, etc.), and visiting family. 
 
-![_config.yml]({{ site.baseurl }}/assets/images/me-one.HEIC){: width: "500"}
+![_config.yml]({{ site.baseurl }}/assets/images/me-two.jpg){: width: "700"}
 
 
 
