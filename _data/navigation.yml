@@ -1,10 +1,10 @@
 pages:
 
-- name: Home
+- title: Home
   link: /
   
-- name: Blog
+- title: Blog
   link: /blog
   
-- name: About
+- title: About
   link: /about
