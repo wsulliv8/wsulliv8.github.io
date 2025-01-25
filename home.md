@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Home
-permalink: /home/
+permalink: /
 ---
 
 **Greetings!** I am a nuclear submarine officer working at Trident Training Facility (TTF) near Seattle. I recently spent three years on the USS Jimmy Carter (SSN-23) and prior to that I did my undergrad in Computer Science at the University of Notre Dame.
