@@ -1,7 +1,7 @@
 <nav>
   {% for item in site.data.navigation.pages %}
     <a href="{{ site.baseurl }}{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
-      {{ item.name }}
+      {{ item.title }}
     </a>
   {% endfor %}
 </nav>
