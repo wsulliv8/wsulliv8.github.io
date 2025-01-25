@@ -1,7 +1,5 @@
-pages:
-
 - title: Home
-  link: ~
+  link: /
   
 - title: Blog
   link: /blog
