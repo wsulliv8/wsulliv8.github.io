@@ -13,6 +13,6 @@ Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, sno
 ![Sub Life](/assets/images/me-two.JPG){: width: "700"}{: height: "auto"}
 *The dollar bill is for a nickname, "Bill"*
 
-
+![_config.yml]({{ site.baseurl }}/assets/images/me-two.JPG){: width="600"}
 
 
