@@ -12,7 +12,7 @@ Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, sno
 
 <div style="display:flex;">
   <img src="/assets/images/me-two.JPG" style="width:400px">
-  <img src="/assets/images/me-one.HEIC" style="width:400px">
+  <img src="/assets/images/me-one.jpg" style="width:400px">
 </div>
 
 ![_config.yml]({{ site.baseurl }}/assets/images/me-two.JPG){: width="400"}
