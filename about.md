@@ -7,10 +7,10 @@ permalink: /about/
 My path to a career in software engineering was relatively unconventional. Prior to commissioning into the US Navy submarine force, I spent four years at the University of Notre Dame where I studied Computer Science. Those four years provided me a strong foundation in the core theory of Computer Science including data structures, algorithms, and operating systems. I also had the chance to study computer vision (before the explosion in popularity of AI) and found the theory intriguing; the class sparked my interest in machine learning and was a contributing factor in my decision to enroll in the University of Texas at Austin's Master's in Computer Science program. Aside from my studies, I was a member of the Notre Dame cheerleading team; I had an incredible time cheering and performing stunts alongside the leprechaun during football games.
 
 <div style="display:flex; flex-wrap:wrap;">
-  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/dome.jpg" style="width:400px"></div>
-  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/stunt.jpg" style="width:400px"></div>
-  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/mom.JPG" style="width:400px"></div>
-  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/lep.JPG" style="width:400px"></div>
+  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/dome.jpg" style="width:350px"></div>
+  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/stunt.jpg" style="width:350px"></div>
+  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/mom.JPG" style="width:350px"></div>
+  <div style="display:flex; align-items:center;justify-content:center"><img src="/assets/images/lep.JPG" style="width:350px"></div>
 </div>
 
 Following undergrad, I entered the submarine force as an Ensign and began naval nuclear training in preparation for my first submarine. The nuclear pipeline is no joke; it involves six months of masters-level coursework in nuclear engineering, six months of hands-on training at a shore-based submarine reactor, and three months of tactical training.
