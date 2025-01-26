@@ -112,6 +112,15 @@ img {
   margin: 0 auto;
 }
 
+img+em,
+figcaption {
+  font-size: 1rem;
+  font-style: normal;
+  display: block;
+  text-align: center;
+  margin-top: -1rem;
+}
+
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
   max-width: none;
