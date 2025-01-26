@@ -7,17 +7,17 @@ permalink: /about/
 My path to a career in software engineering was relatively unconventional. Prior to commissioning into the US Navy submarine force, I spent four years at the University of Notre Dame where I studied Computer Science. Those four years provided me a strong foundation in the core theory of Computer Science including data structures, algorithms, and operating systems. I also had the chance to study computer vision (before the explosion in popularity of AI) and found the theory intriguing; the class sparked my interest in machine learning and was a contributing factor in my decision to enroll in the University of Texas at Austin's Master's in Computer Science program. Aside from my studies, I was a member of the Notre Dame cheerleading team; I had an incredible time cheering and performing stunts alongside the leprechaun during football games. 
 
 <div style="display:flex; flex-wrap:wrap;">
-  <img src="/assets/images/dome.jpg" style="width:400px">
-  <img src="/assets/images/stunt.jpg" style="width:400px">
-   <img src="/assets/images/mom.JPG" style="width:400px">
-   <img src="/assets/images/lep.JPG" style="width:400px">
+  <img src="/assets/images/dome.jpg" style="width:350px">
+  <img src="/assets/images/stunt.jpg" style="width:350px">
+   <img src="/assets/images/mom.JPG" style="width:350px">
+   <img src="/assets/images/lep.JPG" style="width:350px">
 </div>
 
 Following undergrad, I entered the submarine force as an Ensign and began naval nuclear training in preparation for my first submarine. The nuclear pipeline is no joke; it involves six months of masters-level coursework in nuclear engineering, six months of hands-on training at a shore-based submarine reactor, and three months of tactical training. 
 
 <div style="display:flex; flex-wrap:wrap;">
-  <img src="/assets/images/plane.jpg" style="width:400px">
-  <img src="/assets/images/school.jpg" style="width:400px">
+  <img src="/assets/images/plane.jpg" style="width:350px">
+  <img src="/assets/images/school.JPG" style="width:350px">
 </div>
 
 The bar is raised in terms of difficulty and expectations once an officer arrives at his first boat. I was lucky to be assigned to the USS Jimmy Carter (SSN-23), one of the three Seawolf class submarines, during an operational period. "Operational" for the Jimmy Carter translates to roughly 600 days underwater in the three years I was onboard, so time above water to be with family vastly increased in value. 
@@ -25,10 +25,10 @@ The bar is raised in terms of difficulty and expectations once an officer arrive
 Submarine officers typically have to juggle two primary duties: standing watch as a watch officer (Engineering Officer of the Watch and Officer of the Deck) and leading a division of sailors as division officer. Both duties offer a variety of complex leadership and intellectual challenges.
 
 <div style="display:flex; flex-wrap:wrap;">
-  <img src="/assets/images/drive.jpg" style="width:400px">
-  <img src="/assets/images/flag.jpg" style="width:400px">
-  <img src="/assets/images/friend.jpg" style="width:400px">
-  <img src="/assets/images/pneo.jpg" style="width:400px">
+  <img src="/assets/images/drive.jpg" style="width:350px">
+  <img src="/assets/images/flag.jpg" style="width:350px">
+  <img src="/assets/images/friend.jpg" style="width:350px">
+  <img src="/assets/images/pneo.jpg" style="width:350px">
 </div>
 
 The Engineering Officer of the Watch is responsible for safe operation of the reactor plant while the Officer of the Deck's responsibility expands to the entire ship. Nothing teaches a 24-year old ownership faster than driving a $4 billion dollar warship and being directly responsible for hundreds of lives.
