@@ -10,11 +10,10 @@ I am currently enrolled in the Computer Science graduate program at the Universi
 
 Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, snowboarding, kayaking, etc.), and visiting family. 
 
-<div style="display:flex;">
+<div style="display:flex; justify-content: center;">
   <img src="/assets/images/me-two.JPG" style="width:400px">
   <img src="/assets/images/me-one.jpg" style="width:400px">
 </div>
+*Left: Dress whites for Change of Command; Right: Driving the boat somewhere in the Pacific*
 
-![_config.yml]({{ site.baseurl }}/assets/images/me-two.JPG){: width="400"}
-*The dollar bill is for a nickname, "Bill"*
 
