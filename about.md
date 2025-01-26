@@ -9,8 +9,8 @@ My path to a career in software engineering was relatively unconventional. Prior
 <div style="display:flex; flex-wrap:wrap;">
   <img src="/assets/images/dome.jpg" style="width:400px">
   <img src="/assets/images/stunt.jpg" style="width:400px">
-   <img src="/assets/images/mom.jpg" style="width:400px">
-   <img src="/assets/images/lep.jpg" style="width:400px">
+   <img src="/assets/images/mom.JPG" style="width:400px">
+   <img src="/assets/images/lep.JPG" style="width:400px">
 </div>
 
 Following undergrad, I entered the submarine force as an Ensign and began naval nuclear training in preparation for my first submarine. The nuclear pipeline is no joke; it involves six months of masters-level coursework in nuclear engineering, six months of hands-on training at a shore-based submarine reactor, and three months of tactical training. 
