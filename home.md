@@ -10,9 +10,6 @@ I am currently enrolled in the Computer Science graduate program at the Universi
 
 Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, snowboarding, kayaking, etc.), and visiting family. 
 
-![Sub Life](/assets/images/me-two.JPG){: width: "700"}{: height: "auto"}
+![_config.yml]({{ site.baseurl }}/assets/images/me-two.JPG){: width="400"}
 *The dollar bill is for a nickname, "Bill"*
-
-![_config.yml]({{ site.baseurl }}/assets/images/me-two.JPG){: width="600"}
-
 
