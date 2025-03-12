@@ -22,17 +22,18 @@ body {
 
 body {
   background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 1.2rem/1.4 $helvetica;
   color: $darkGray;
   display: flex;
   flex-direction: column;
+  line-height: 1.4;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 1000px;
   padding: 0 10px;
-  width: 100%;
+  width: 70%;
   flex: 1 0 auto;
 }
 
@@ -49,6 +50,8 @@ h6 {
   line-height: 1.7;
   margin: 1em 0 15px;
   padding: 0;
+  width: 700px;
+  text-align: center;
 
   @include mobile {
     line-height: 1.4;
@@ -68,15 +71,19 @@ h2 {
 
 h3 {
   font-size: 20px;
+  text-align: left;
 }
 
 h4 {
   font-size: 18px;
   color: $gray;
+  text-align: left;
 }
 
 p {
-  margin: 15px 0;
+  margin: 15px 0 30px 0;
+  width: 700px;
+  text-align: left;
 }
 
 a {
@@ -93,6 +100,8 @@ ul,
 ol {
   margin: 15px 0;
   padding-left: 30px;
+  width: 700px;
+  text-align: left;
 }
 
 ul {
@@ -246,6 +255,7 @@ figcaption {
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
+  text-align: left;
 }
 
 .site-description {
@@ -308,6 +318,10 @@ nav {
 }
 
 .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   blockquote {
     margin: 1.8em 0.8em;
     border-left: 2px solid $gray;
@@ -327,6 +341,13 @@ nav {
   }
 }
 
+.entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
@@ -339,6 +360,46 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+}
+
+aside {
+  font-size: 0.9em;
+  color: #555;
+  background: #f9f9f9;
+  padding: 10px;
+  border-left: 4px solid #ccc;
+  margin: 20px 0;
+}
+
+// Blog table styling
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
