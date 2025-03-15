@@ -12,7 +12,7 @@ Aside from academics, I enjoy weightlifting, spending time outdoors (hiking, sno
 
 Please feel free to checkout my blog! I mainly write on machine learning, data science, and software engineering, but I also intend to write a few blogs about submarine life and the military to civilian transition.
 
-<div style="display:flex; justify-content: center; gap: 10px">
+<div class="" style="display:flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
   <img src="/assets/images/me-two.JPG" style="width:350px; border-radius:16px;">
   <img src="/assets/images/me-one.jpg" style="width:350px; border-radius:16px;">
 </div>

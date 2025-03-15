@@ -499,8 +499,6 @@ tr:hover {
   aside {
     width: 100% !important;
     max-width: 100% !important;
-    /*     white-space: pre;
- */
     overflow-x: auto;
     display: block;
     box-sizing: border-box;
@@ -514,6 +512,18 @@ tr:hover {
 
   .highlight pre {
     padding: 10px;
+  }
+
+  .highlighter-rouge,
+  .language-python,
+  .highlight {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  mjx-container {
+    width: 100%;
+    overflow-x: auto;
   }
 
   p code,
