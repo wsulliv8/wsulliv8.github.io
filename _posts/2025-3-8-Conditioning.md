@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "When Numbers Betray: A Practical Guide to Numerical Stability and Conditioning"
-image: /assets/images/svd-equation.png
+image: /assets/images/conditioning/stability.png
 excerpt: Numerical stability vs conditioning. Two important metrics when solving linear systems.
 ---
 

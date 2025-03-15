@@ -154,6 +154,10 @@ figcaption {
   justify-content: center;
   align-content: center;
   gap: 10px;
+
+  &.overview {
+    width: 800px;
+  }
 }
 
 .image-container > div {
@@ -300,9 +304,15 @@ nav {
 //
 
 .posts {
-  border: 2px black solid;
-  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 10px;
+}
+
+.posts > a {
+  padding-bottom: 3rem;
+  border-bottom: black solid 2px;
 }
 
 .posts > .post {
