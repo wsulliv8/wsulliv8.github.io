@@ -412,6 +412,136 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 95%;
+    max-width: 100%;
+    padding: 0 10px;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  blockquote,
+  .entry,
+  .post {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-container,
+  .image-container.overview {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .wrapper-masthead {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .wrapper-footer {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .site-info {
+    width: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  nav {
+    float: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  .post,
+  .posts {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  pre,
+  code,
+  .highlight,
+  aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    /*     white-space: pre;
+ */
+    overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .highlight {
+    margin: 20px 0;
+    padding: 0;
+    border-radius: 4px;
+  }
+
+  .highlight pre {
+    padding: 10px;
+  }
+
+  p code,
+  li code {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .post blockquote {
+    font-size: 18px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
