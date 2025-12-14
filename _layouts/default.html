@@ -24,6 +24,14 @@
       title="{{ site.name }} - {{ site.description }}"
       href="{{ site.baseurl }}/feed.xml"
     />
+    <script>
+      // Apply theme immediately to prevent flash
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script src="{{ site.baseurl }}/assets/js/dark-mode.js" defer></script>
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>

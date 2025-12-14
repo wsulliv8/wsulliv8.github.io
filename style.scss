@@ -21,12 +21,13 @@ body {
 }
 
 body {
-  background: $white;
+  background: var(--bg-color);
   font: 1.2rem/1.4 $helvetica;
-  color: $darkGray;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   line-height: 1.4;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -44,7 +45,7 @@ h4,
 h5,
 h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: var(--text-color-darker);
   font-weight: bold;
 
   line-height: 1.7;
@@ -76,7 +77,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: var(--text-color-gray);
   text-align: left;
 }
 
@@ -173,17 +174,17 @@ figcaption {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: var(--text-color-gray);
 }
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: $black;
-  background: $lightGray;
+  color: var(--selection-color);
+  background: var(--selection-bg);
 }
 ::selection {
-  color: $black;
-  background: $lightGray;
+  color: var(--selection-color);
+  background: var(--selection-bg);
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -210,14 +211,16 @@ figcaption {
   margin-bottom: 50px;
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: var(--header-bg);
   width: 100vw;
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
 
   @include mobile {
     text-align: center;
@@ -253,7 +256,7 @@ figcaption {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: var(--text-color);
   cursor: pointer;
   font-family: $helveticaNeue;
   font-weight: 300;
@@ -264,7 +267,7 @@ figcaption {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: var(--text-color-gray);
   font-size: 16px;
 
   @include mobile {
@@ -277,25 +280,72 @@ nav {
   margin-top: 23px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   @include mobile {
     float: none;
     margin-top: 9px;
-    display: block;
+    display: flex;
+    justify-content: center;
     font-size: 16px;
   }
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
+    margin-left: 0;
+    color: var(--text-color);
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 
     @include mobile {
       margin: 0 10px;
       color: $blue;
     }
+  }
+
+  .dark-mode-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 10px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    color: var(--text-color);
+
+    &:hover {
+      background-color: var(--border-color);
+    }
+
+    .moon-icon {
+      display: none;
+    }
+
+    .sun-icon {
+      display: block;
+    }
+
+    @include mobile {
+      margin-left: 0;
+    }
+  }
+}
+
+[data-theme="dark"] nav .dark-mode-toggle {
+  .moon-icon {
+    display: block;
+  }
+
+  .sun-icon {
+    display: none;
   }
 }
 
@@ -312,14 +362,15 @@ nav {
 
 .posts > a {
   padding-bottom: 3rem;
-  border-bottom: black solid 2px;
+  border-bottom: var(--text-color-darker) solid 2px;
 }
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-  color: black;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color-darker);
   text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .posts > .post:last-child {
@@ -334,11 +385,12 @@ nav {
   align-items: center;
   blockquote {
     margin: 1.8em 0.8em;
-    border-left: 2px solid $gray;
+    border-left: 2px solid var(--text-color-gray);
     padding: 0.1em 1em;
-    color: $gray;
+    color: var(--text-color-gray);
     font-size: 22px;
     font-style: italic;
+    transition: border-color 0.3s ease, color 0.3s ease;
   }
 
   .comments {
@@ -360,11 +412,12 @@ nav {
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--footer-bg);
   flex-shrink: 0;
   width: 100vw;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 footer {
@@ -374,11 +427,12 @@ footer {
 
 aside {
   font-size: 0.9em;
-  color: #555;
-  background: #f9f9f9;
+  color: var(--text-color-gray);
+  background: var(--aside-bg);
   padding: 10px;
-  border-left: 4px solid #ccc;
+  border-left: 4px solid var(--aside-border);
   margin: 20px 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 // Blog table styling
@@ -391,25 +445,29 @@ table {
 }
 
 th {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: var(--table-header-bg);
+  color: var(--text-color-darker);
   font-weight: bold;
   text-align: center;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 td {
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: var(--table-row-even);
+  transition: background-color 0.3s ease;
 }
 
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: var(--table-row-hover);
+  transition: background-color 0.3s ease;
 }
 
 @media screen and (max-width: 1000px) {

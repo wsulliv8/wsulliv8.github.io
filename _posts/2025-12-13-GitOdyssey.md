@@ -1,14 +1,17 @@
 ---
 layout: post
-title: "GitOdyssey: AI-Powered Codebase Exploration"
-image:
+title: GitOdyssey - AI-Powered Codebase Exploration
+image: /assets/images/gitodyssey/graph.jpg
 excerpt: Join me on a journey from idea to hackathon MVP to production-ready web app and what I learned along the way.
 ---
 
-
 > **Every repo has a story.** We built GitOdyssey to make that story searchable, explorable, and explainable.
 
-[![Watch the Demo](https://img.youtube.com/vi/DYcpnQevTuk/0.jpg)](https://youtu.be/DYcpnQevTuk)
+<div class="image-container">
+  <a href="https://youtu.be/DYcpnQevTuk" target="_blank">
+    <img src="https://img.youtube.com/vi/DYcpnQevTuk/0.jpg" alt="Watch the Demo" style="width:800px;">
+  </a>
+</div>
 
 ## Why we built GitOdyssey
 
@@ -37,14 +40,25 @@ For the exact tech stack, please refer to the [repo](https://github.com/DylanPin
 - **Semantic search + filters** to highlight the most relevant commits.
 - **Chat with citations** so answers stay grounded in specific commits.
 
-
-<div class="image-container"><img src="/assets/images/gitodyssey/graph.jpg" style="width:1200px;"></div>
+<div class="image-container">
+  <a href="/assets/images/gitodyssey/graph.jpg" target="_blank">
+    <img src="/assets/images/gitodyssey/graph.jpg" style="width:1200px; cursor: pointer;">
+  </a>
+</div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-1: Our Interactive Git Graph U/I</em></p>
 
-<div class="image-container"><img src="/assets/images/gitodyssey/summary.jpg" style="width:1200px;"></div>
+<div class="image-container">
+  <a href="/assets/images/gitodyssey/summary.jpg" target="_blank">
+    <img src="/assets/images/gitodyssey/summary.jpg" style="width:1000px; cursor: pointer;">
+  </a>
+</div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-2: The Summarization Tool in Action </em></p>
 
-<div class="image-container"><img src="/assets/images/git-odyssey/chat.png" style="width:1200px;"></div>
+<div class="image-container">
+  <a href="/assets/images/git-odyssey/chat.png" target="_blank">
+    <img src="/assets/images/git-odyssey/chat.png" style="width:1000px; cursor: pointer;">
+  </a>
+</div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-3: Users can chat with a context-aware foundation model. Anything in the repo's history is fair-game!</em></p>
 
 ---
@@ -66,7 +80,7 @@ A commit is powerful because it encodes both:
 
 ### Diffs, patches, and hunks
 
-  GitOdyssey is fundamentally about change, and in Git that means **diffs**:
+GitOdyssey is fundamentally about change, and in Git that means **diffs**:
 
 - A **diff** (loosely) describes how to transform one snapshot into another.
 - A **patch** is the textual representation of that diff.
@@ -76,13 +90,14 @@ A commit is powerful because it encodes both:
 
   ```diff
 
-@@ -10,7 +10,11 @@
 
-```
-  
+  @@ -10,7 +10,11 @@
+
+  ```
+
 Which reads like: “around line 10, remove 7 lines from the old file and add 11 lines to the new file.” Hunks are the perfect granularity for developer tooling because they are:
 
-  - small enough to summarize accurately
+- small enough to summarize accurately
 - large enough to capture intent (more than single-line changes)
 - easy to jump to inside a diff viewer
 
@@ -107,23 +122,22 @@ GitOdyssey is a full-stack AI web application:
 
 This is the mental model I used while building:
 
-<div class="image-container " style="width:1200px;">
 ```mermaid
 
 flowchart LR
-  A["Repo URL"] --> B["Ingest: clone + walk commits"]
-  B --> C["Normalize: Commit / FileChange / Hunk objects"]
-  C --> D["Embed raw content<br/>(commit msg + hunk content)"]
-  D --> E[("Postgres + pgvector")]
+A["Repo URL"] --> B["Ingest: clone + walk commits"]
+B --> C["Normalize: Commit / FileChange / Hunk objects"]
+C --> D["Embed raw content<br/>(commit msg + hunk content)"]
+D --> E[("Postgres + pgvector")]
 
-  Q["User query"] --> F["Hybrid retrieval<br/>(SQL filters + vector search)"]
-  F --> G["Context pack<br/>(top commits / files / hunks)"]
-  G --> H["LLM answer<br/>(with citations)"]
+Q["User query"] --> F["Hybrid retrieval<br/>(SQL filters + vector search)"]
+F --> G["Context pack<br/>(top commits / files / hunks)"]
+G --> H["LLM answer<br/>(with citations)"]
 
-  UI["Commit graph + diff viewer"] -->|on-demand| S["Summarize commit / file / hunk"]
-  S --> E
+UI["Commit graph + diff viewer"] -->|on-demand| S["Summarize commit / file / hunk"]
+S --> E
+
 ```
-</div>
 
 ### Backend decisions
 
@@ -134,23 +148,23 @@ FastAPI gave us a fast path to clean APIs, dependency injection, and Pydantic mo
 ### Postgres + pgvector vs. document DB + vector DB
 
 We debated two architectures:
+
 #### Option A: Postgres as the primary store + pgvector for embeddings (what we chose)
 
-  **Why it fit GitOdyssey:** Git data is inherently relational.
+**Why it fit GitOdyssey:** Git data is inherently relational.
 
-  - commit → file_changes → diff_hunks is a classic parent/child model
+- commit → file_changes → diff_hunks is a classic parent/child model
 - branches connect many commits (many-to-many)
 - filters like author/path/time/status are naturally SQL
 
 **Pros**
 
-  - **One source of truth** for metadata + embeddings
+- **One source of truth** for metadata + embeddings
 - **Powerful filtering** before semantic search (reduces candidate set drastically)
 - **Transactional consistency** (less “two system drift”)
 - **Simple ops**: one DB, one backup story, one permissions model
-  
+
 **Cons / risks**
-  
 
 - Postgres is not a dedicated vector engine; very large-scale ANN search can require careful tuning
 
@@ -164,7 +178,7 @@ Below is a code snippet depicting how we represented Git data in a relational db
 class SQLCommit(Base):
 	"""SQLAlchemy model for commits."""
 	__tablename__ = "commits"
-	  
+
 	sha: Mapped[str] = mapped_column(String(40), primary_key=True)
 	parents: Mapped[List[str]] = mapped_column(JSON)
 	author: Mapped[Optional[str]]
@@ -175,10 +189,10 @@ class SQLCommit(Base):
 	embedding: Mapped[Optional[List[float]]] = mapped_column(
 	Vector(1536)
 	) # OpenAI embedding size
-	
+
 	# Foreign Keys
 	repo_url: Mapped[str] = mapped_column(ForeignKey("repos.url"))
-	
+
 	# Relationships
 	repo: Mapped["SQLRepo"] = relationship(
 	"SQLRepo", back_populates="commits", foreign_keys=[repo_url]
@@ -189,9 +203,8 @@ class SQLCommit(Base):
 	file_changes: Mapped[List["SQLFileChange"]] = relationship(
 	"SQLFileChange", back_populates="commit"
 	)
-```
+````
 
-  
 #### Option B: Document DB (Mongo/Firestore/etc.) + a dedicated vector DB (Pinecone/Weaviate/Milvus)
 
 **Pros**
@@ -208,18 +221,18 @@ class SQLCommit(Base):
 - debugging becomes “which system is wrong?”
 - Query patterns like “give me the full commit, with all file changes and hunks” become more complex without joins
 - Cost is often higher early (managed vector DB + managed primary store
-  
+
 **Our conclusion**: for a hackathon MVP (and honestly, for v1), Postgres + pgvector is an excellent choice because Git’s structure _wants_ relational modeling, and hybrid retrieval is easier when your filters live next to your vectors.
-  
+
 ### Hybrid Retrieval with Postgres + pgvector
-  
+
 We perform hybrid retrieval by:
-  
+
 - apply SQL filters first
 - compute cosine distances on vectors across multiple levels (commit/file_change/hunk)
 - union the results
 - pick the best match per commit using a window function
-  
+
 ```python
 # Similarity thresholds tuned per entity type
 SIMILARITY_THRESHOLDS = {
@@ -240,11 +253,7 @@ EXCLUDED_FILE_PATTERNS = [
 ]
 ```
 
-  
-
 And later:
-
-  
 
 ```python
 # Combine commit/file/hunk matches
@@ -301,7 +310,6 @@ At scale, vector DBs (and pgvector via indexes) use **approximate nearest neighb
 
 - Instead of searching every point, they build an index structure that can quickly navigate “regions” of the vector space.
 - A popular approach is **HNSW** (Hierarchical Navigable Small World graphs).
-  
 
 We can trade a tiny amount of recall for huge speed improvements—and because we combine SQL filters + vectors + multi-level embeddings, quality stays high.
 
@@ -379,11 +387,12 @@ for update in updates:
 
 The diff view allows users to learn more in-depth and relevant information about a specific commit:
 
-
-<div class="image-container"><img src="/assets/images/gitodyssey/diff.jpg" style="width:1200px;"></div>
+<div class="image-container">
+  <a href="/assets/images/gitodyssey/diff.jpg" target="_blank">
+    <img src="/assets/images/gitodyssey/diff.jpg" style="width:1200px; cursor: pointer;">
+  </a>
+</div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-4: The Monaco Diff Viewer should be familiar for those that VS Code</em></p>
-
-
 We render:
 
 - a file-level panel with a Monaco side-by-side diff
@@ -392,7 +401,7 @@ We render:
 For each hunk, we can either:
 
 1. **Jump-to-context**: click the hunk label and the editor scrolls to that range
-2. **Summarize this hunk**: generate a focused explanation for just that chunk 
+2. **Summarize this hunk**: generate a focused explanation for just that chunk
 
 Summarizing only hunks, ensures foundation model resources are used intelligently and gives the user fine-grained control over information flow.
 
@@ -402,19 +411,11 @@ Summarizing only hunks, ensures foundation model resources are used intelligentl
 
 The hackathon version worked well, but we hit real engineering constraints quickly.
 
-  
-
 ### 1) Summarization cost + latency
-
-  
 
 **Problem:** summarizing every commit/file/hunk up front didn’t scale.
 
-  
-
 **Fix:** lazy summarization + batched embedding:
-
-  
 
 - fast initial ingest
 
@@ -422,19 +423,11 @@ The hackathon version worked well, but we hit real engineering constraints quick
 
 - summary embeddings persisted for better future retrieval
 
-  
-
 ### 2) Relevance: semantic-only wasn’t enough
-
-  
 
 **Problem:** semantic search alone can’t express hard constraints.
 
-  
-
 **Fix:** hybrid retrieval:
-
-  
 
 - SQL filters narrow down candidates
 
@@ -442,15 +435,9 @@ The hackathon version worked well, but we hit real engineering constraints quick
 
 - exclude noisy files (lockfiles/images/configs) from semantic search
 
-  
-
 ### 3) The data problem
 
-  
-
 **Problem:** Git history volume explodes quickly:
-
-  
 
 - file snapshots can be large
 
@@ -458,30 +445,19 @@ The hackathon version worked well, but we hit real engineering constraints quick
 
 - 1536-dim vectors add real storage costs
 
-  
-
 **Fixes:**
-
-  
 
 - store snapshots strategically (current + previous)
 
 - cache key pieces on the frontend for responsiveness
 
-
-  
-
 ### 4) ORM performance traps (N+1 queries)
-
-  
 
 **Problem:** fetching a commit graph naïvely can explode into N+1 queries.
 
-  
-
 **Fix:** eager loading (`joinedload`) for commit → file_changes → hunks.
 
-```python 
+```python
 
 def get_commit(self, sha: str) -> Optional[Commit]:
 	query = (
@@ -499,18 +475,11 @@ def get_commit(self, sha: str) -> Optional[Commit]:
 	return None
 ```
 
-
 ### 5) Hosting constraints during the hackathon (and why we moved)
-
-  
 
 **Problem:** we initially used Render + Supabase and ran into practical limits (rate limiting, memory constraints, latency).
 
-  
-
 **Fix:** post-hackathon we migrated to AWS using Terraform:
-
-  
 
 - ECS Fargate for backend
 
@@ -518,15 +487,9 @@ def get_commit(self, sha: str) -> Optional[Commit]:
 
 - S3 + CloudFront for frontend
 
-  
-
 ### 6) Connection lifecycle issues under time pressure
 
-  
-
 **Problem:** it’s easy to accidentally create multiple engines/sessions quickly and exhaust pools.
-
-  
 
 **Fix:** centralize DB lifecycle and use FastAPI dependency injection to reuse sessions.
 
@@ -556,5 +519,3 @@ A few directions I’m excited about:
 ---
 
 If this project or any of my other blogs interest you, please reach out to me via [LinkedIn](www.linkedin.com/in/william-g-sullivan).
-
-
