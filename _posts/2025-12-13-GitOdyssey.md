@@ -2,10 +2,12 @@
 layout: post
 title: GitOdyssey - AI-Powered Codebase Exploration
 image: /assets/images/gitodyssey/graph.jpg
-excerpt: Join me on a journey from idea to hackathon MVP to production-ready web app and what I learned along the way.
+excerpt: Join me on a journey from idea to hackathon MVP to production-ready web app.
 ---
 
 > **Every repo has a story.** We built GitOdyssey to make that story searchable, explorable, and explainable.
+
+Watch video below provides a brief overview of the application's features.
 
 <div class="image-container">
   <a href="https://youtu.be/DYcpnQevTuk" target="_blank">
@@ -21,13 +23,13 @@ During onboarding and code review at large companies, understanding why the code
 - When did error handling change?
 - Which commits touched this module during the incident last quarter?
 
-Modern AI coding assistants help a lot, but they mostly operate on the **current snapshot** of a codebase. During the University of Texas at Austin's annual HackTX hackathon, our team asked a simple question:
+Modern AI coding assistants help a lot, but they mostly operate on the current snapshot of a codebase. During the University of Texas at Austin's annual HackTX hackathon, our team asked a simple question:
 
 > What if your repository’s entire history became an interactive, AI-queryable knowledge graph?
 
-That became **GitOdyssey**: a web app that ingests a Git repo, builds a commit graph, and lets you explore changes visually then ask natural language questions grounded in commit-level evidence.
+That became GitOdyssey: a web app that ingests a Git repo, builds a commit graph, and lets you explore changes visually then ask natural language questions grounded in commit-level evidence.
 
-For the exact tech stack, please refer to the [repo](https://github.com/DylanPina/git-odyssey/tree/main?tab=readme-ov-file).
+For the exact tech stack, please refer to our official GitOdyssey [repo](https://github.com/DylanPina/git-odyssey/tree/main?tab=readme-ov-file).
 
 ---
 
@@ -55,8 +57,8 @@ For the exact tech stack, please refer to the [repo](https://github.com/DylanPin
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-2: The Summarization Tool in Action </em></p>
 
 <div class="image-container">
-  <a href="/assets/images/git-odyssey/chat.png" target="_blank">
-    <img src="/assets/images/git-odyssey/chat.png" style="width:1000px; cursor: pointer;">
+  <a href="/assets/images/gitodyssey/chat.png" target="_blank">
+    <img src="/assets/images/gitodyssey/chat.png" style="width:1000px; cursor: pointer;">
   </a>
 </div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-3: Users can chat with a context-aware foundation model. Anything in the repo's history is fair-game!</em></p>
@@ -120,9 +122,9 @@ GitOdyssey is a full-stack AI web application:
 
 ### High-level user/data flow
 
-This is the mental model I used while building:
+This is the mental model we used while building:
 
-```mermaid
+{% mermaid %}
 
 flowchart LR
 A["Repo URL"] --> B["Ingest: clone + walk commits"]
@@ -137,7 +139,7 @@ G --> H["LLM answer<br/>(with citations)"]
 UI["Commit graph + diff viewer"] -->|on-demand| S["Summarize commit / file / hunk"]
 S --> E
 
-```
+{% endmermaid %}
 
 ### Backend decisions
 
@@ -203,7 +205,7 @@ class SQLCommit(Base):
 	file_changes: Mapped[List["SQLFileChange"]] = relationship(
 	"SQLFileChange", back_populates="commit"
 	)
-````
+```
 
 #### Option B: Document DB (Mongo/Firestore/etc.) + a dedicated vector DB (Pinecone/Weaviate/Milvus)
 
