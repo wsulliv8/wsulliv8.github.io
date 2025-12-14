@@ -277,7 +277,7 @@ ranked_query = select(
 
 ### Frontend decisions
 
-We optimized for a “developer-native” experience:
+We optimized for a developer-native experience:
 
 - **React Flow + Dagre** for the commit graph
 - **Monaco Diff Editor** so diffs feel like VS Code
@@ -289,7 +289,7 @@ We optimized for a “developer-native” experience:
 
 ## Retrieval-Augmented Generation (RAG) and Hybrid Search
 
-RAG is the pattern that makes “chat with your repo” actually feasible:
+RAG is the pattern that makes GitOdyssey actually feasible:
 
 1. Retrieve the best evidence from your repository history
 2. Feed that evidence into an LLM
@@ -305,18 +305,18 @@ $$
 \cos(\theta)=\frac{a \cdot b}{\lvert a \rvert , \lvert b \rvert }
 $$
 
-An embedding model converts text/code into a vector (in our case, **1536-dimensional** vectors). Similar meanings map to nearby points.
+An embedding model converts text/code into a vector (in our case, 1536-dimensional vectors). Similar meanings map to nearby points.
 
 Intuition: the dot product measures alignment; dividing by lengths normalizes it
 
-Brute force is expensive: comparing one query vector against N stored vectors is \(O(N \cdot d)\) (where d=1536)
+Brute force is expensive: comparing one query vector against N stored vectors is $O(N \cdot d)$ (where d=1536)
 
-At scale, vector DBs (and pgvector via indexes) use **approximate nearest neighbor (ANN)** algorithms:
+At scale, vector DBs (and pgvector via indexes) use approximate nearest neighbor (ANN) algorithms:
 
 - Instead of searching every point, they build an index structure that can quickly navigate “regions” of the vector space.
 - A popular approach is **HNSW** (Hierarchical Navigable Small World graphs).
 
-We can trade a tiny amount of recall for huge speed improvements—and because we combine SQL filters + vectors + multi-level embeddings, quality stays high.
+We can trade a tiny amount of recall for huge speed improvements and because we combine SQL filters + vectors + multi-level embeddings, quality stays high.
 
 ### Why hybrid retrieval beats pure vector search in this case
 
@@ -326,7 +326,7 @@ Pure vector search struggles with exact constraints:
 - “Only changes in `src/auth/`”
 - “Only between March 1 and March 10”
 
-So our retrieval pipeline is intentionally **two-stage**:
+So our retrieval pipeline is intentionally two-stage:
 
 1. **SQL filtering stage** to narrow the candidate set
 2. **Semantic ranking stage** to surface the best matches
@@ -423,9 +423,7 @@ The hackathon version worked well, but we hit real engineering constraints quick
 **Fix:** lazy summarization + batched embedding:
 
 - fast initial ingest
-
 - summaries generated only when requested
-
 - summary embeddings persisted for better future retrieval
 
 ### 2) Relevance: semantic-only wasn’t enough
@@ -435,9 +433,7 @@ The hackathon version worked well, but we hit real engineering constraints quick
 **Fix:** hybrid retrieval:
 
 - SQL filters narrow down candidates
-
 - semantic ranking surfaces the best matches
-
 - exclude noisy files (lockfiles/images/configs) from semantic search
 
 ### 3) The data problem
@@ -445,15 +441,12 @@ The hackathon version worked well, but we hit real engineering constraints quick
 **Problem:** Git history volume explodes quickly:
 
 - file snapshots can be large
-
 - diffs can be noisy
-
 - 1536-dim vectors add real storage costs
 
 **Fixes:**
 
 - store snapshots strategically (current + previous)
-
 - cache key pieces on the frontend for responsiveness
 
 ### 4) ORM performance traps (N+1 queries)
@@ -487,9 +480,7 @@ def get_commit(self, sha: str) -> Optional[Commit]:
 **Fix:** post-hackathon we migrated to AWS using Terraform:
 
 - ECS Fargate for backend
-
 - RDS Postgres for database
-
 - S3 + CloudFront for frontend
 
 ### 6) Connection lifecycle issues under time pressure
