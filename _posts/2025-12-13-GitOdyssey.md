@@ -5,7 +5,6 @@ image:
 excerpt: Join me on a journey from idea to hackathon MVP to production-ready web app and what I learned along the way.
 ---
 
-# GitOdyssey: AI-Powered Codebase Exploration
 
 > **Every repo has a story.** We built GitOdyssey to make that story searchable, explorable, and explainable.
 
@@ -38,18 +37,11 @@ For the exact tech stack, please refer to the [repo](https://github.com/DylanPin
 - **Semantic search + filters** to highlight the most relevant commits.
 - **Chat with citations** so answers stay grounded in specific commits.
 
-Recommended visuals to include:
 
-- Landing: `docs/landing.png`
-- Search highlighted nodes: `docs/search_highlight.jpg`
-- Diff experience: `docs/diff.jpg` and `docs/diff_2.jpg`
-- Summaries: `docs/summary_1.jpg`
-- Chat: `docs/chat.png`
-
-<div class="image-container"><img src="/assets/images/gitodyssey/graph.png" style="width:1200px;"></div>
+<div class="image-container"><img src="/assets/images/gitodyssey/graph.jpg" style="width:1200px;"></div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-1: Our Interactive Git Graph U/I</em></p>
 
-<div class="image-container"><img src="/assets/images/gitodyssey/summary.png" style="width:1200px;"></div>
+<div class="image-container"><img src="/assets/images/gitodyssey/summary.jpg" style="width:1200px;"></div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-2: The Summarization Tool in Action </em></p>
 
 <div class="image-container"><img src="/assets/images/git-odyssey/chat.png" style="width:1200px;"></div>
@@ -295,9 +287,6 @@ We embed text into vectors, then compare similarity using cosine distance:
 
 A typical similarity measure is cosine similarity:
 
-\[
-\cos(\theta) = \frac{a \cdot b}{\|a\|\,\|b\|}
-\]
 $$
 \cos(\theta)=\frac{a \cdot b}{\lvert a \rvert , \lvert b \rvert }
 $$
@@ -391,7 +380,7 @@ for update in updates:
 The diff view allows users to learn more in-depth and relevant information about a specific commit:
 
 
-<div class="image-container"><img src="/assets/images/gitodyssey/diff.png" style="width:1200px;"></div>
+<div class="image-container"><img src="/assets/images/gitodyssey/diff.jpg" style="width:1200px;"></div>
 <p style="font-size: 0.8rem; text-align: center;"><em>Fig-4: The Monaco Diff Viewer should be familiar for those that VS Code</em></p>
 
 
