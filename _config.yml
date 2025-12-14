@@ -71,15 +71,10 @@ kramdown:
 sass:
   style: :expanded # You might prefer to minify using :compressed
 
-# Mermaid diagram configuration
-mermaid:
-  src: "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"
-
 # Use the following plug-ins
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-  - jekyll-mermaid # Add mermaid support to Jekyll
 
 # Exclude these files from your production _site
 exclude:

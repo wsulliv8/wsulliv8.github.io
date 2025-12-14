@@ -124,22 +124,25 @@ GitOdyssey is a full-stack AI web application:
 
 This is the mental model we used while building:
 
-{% mermaid %}
+**Ingestion Pipeline:**
 
-flowchart LR
-A["Repo URL"] --> B["Ingest: clone + walk commits"]
-B --> C["Normalize: Commit / FileChange / Hunk objects"]
-C --> D["Embed raw content<br/>(commit msg + hunk content)"]
-D --> E[("Postgres + pgvector")]
+```
+Repo URL → Ingest (clone + walk commits) → Normalize (Commit / FileChange / Hunk objects)
+→ Embed raw content (commit msg + hunk content) → Postgres + pgvector
+```
 
-Q["User query"] --> F["Hybrid retrieval<br/>(SQL filters + vector search)"]
-F --> G["Context pack<br/>(top commits / files / hunks)"]
-G --> H["LLM answer<br/>(with citations)"]
+**Query Pipeline:**
 
-UI["Commit graph + diff viewer"] -->|on-demand| S["Summarize commit / file / hunk"]
-S --> E
+```
+User query → Hybrid retrieval (SQL filters + vector search)
+→ Context pack (top commits / files / hunks) → LLM answer (with citations)
+```
 
-{% endmermaid %}
+**On-demand Summarization:**
+
+```
+Commit graph + diff viewer → Summarize commit / file / hunk → Postgres + pgvector
+```
 
 ### Backend decisions
 
