@@ -432,7 +432,8 @@ aside {
   padding: 10px;
   border-left: 4px solid var(--aside-border);
   margin: 20px 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 // Blog table styling
@@ -451,7 +452,8 @@ th {
   text-align: center;
   padding: 12px;
   border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 td {
